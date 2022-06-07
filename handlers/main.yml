@@ -1,4 +1,5 @@
 ---
 - name: restart docker
   service: "name=docker state={{ docker_restart_handler_state }}"
+  when: docker_service_enabled | bool
   ignore_errors: "{{ ansible_check_mode }}"
